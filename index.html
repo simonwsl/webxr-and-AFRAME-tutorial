@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" contents="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-sale=1">
+
+        <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+        <script src="color-toggle.js"></script>
+        <script src="target-marker.js"></script>
+        <script src="mover.js"></script>
+        <script src="return-emitter.js"></script>
+
+        <title>Hello!</title>
+    </head>
+    <body>
+        <a-scene cursor="rayOrigin: mouse">
+            <a-assets>
+                <a-asset-item id="chair-model" src="https://cdn.glitch.com/b3880c9f-efbe-4f05-ba7a-3b22bab178d8%2FModel.glb?1555095532662"></a-asset-item-id>
+            </a-assets>
+
+            <a-box position="-1.5 1 -1.5" rotation="0 0 0" color="#4CC3D9" target-marker animation="property: rotation; to: 0 360 0; easing: linear; dur: 5000; loop: true"></a-box>
+            <a-sphere position="0 4 -3" radius="1.25" color="#EF2D5E" mover></a-sphere>
+            <a-cylinder position="2 0.75 -2" radius="0.5" height="1.5" color="#FFC65D" color-toggle></a-cylinder>
+            <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#7BC8A4" return-emitter></a-plane>
+            
+            <a-sky src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Rainbow_on_the_Azores_%E2%80%93_360%C2%B0_drone_shot.jpg"></a-sky>
+
+            <a-entity position="0 1.5 -1" gltf-model="#chair-model"></a-entity>
+
+            <a-entity id="rig">
+                <a-entity camera position="0 2 0"look-controls wasd-controls>
+                    <a-cursor id="cursor" raycaster fuse="true" fusetimeout="3000"></a-cursor>
+                </a-entity>
+            </a-entity>
+        </a-scene>
+    </body>
+</html>
